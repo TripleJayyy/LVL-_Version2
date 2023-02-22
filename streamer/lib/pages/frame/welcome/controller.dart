@@ -9,6 +9,6 @@ class WelcomeController extends GetxController{
   @override
   void onReady(){
     super.onReady();
-    print("Welcom controller");
+    print("Welcome controller");
   }
 }

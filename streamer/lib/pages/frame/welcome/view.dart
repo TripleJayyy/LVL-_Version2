@@ -1,9 +1,14 @@
-import 'package:get/get.dart';
-import 'package:streamer/pages/frame/welcome/controller.dart';
+import 'package:flutter/cupertino.dart';
 
-class WelcomeBinding implements Bindings {
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({Key? key}) : super(key: key);
+
+  Widget _buildPageHeadTitle(String title) {
+    return Container();
+  }
+
   @override
-  void dependencies() {
-    Get.lazyPut<WelcomeController>(() => WelcomeController());
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
