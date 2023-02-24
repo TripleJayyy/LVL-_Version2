@@ -23,43 +23,48 @@ class SignInPage extends GetView<WelcomeController> {
   }
 
   Widget _buildThirdPartyLogin(String loginType, String logo) {
-    return Container(
-      width: 295.w,
-      height: 44.h,
-      padding: const EdgeInsets.all(10),
-      margin: EdgeInsets.only(bottom: 15.h),
-      decoration: BoxDecoration(
-          color: AppColors.primaryBackground,
-          borderRadius: const BorderRadius.all(Radius.circular(5)),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                spreadRadius: 1,
-                blurRadius: 2,
-                offset: const Offset(0, 1))
-          ]),
-      child: Row(
-        mainAxisAlignment:
-            logo == '' ? MainAxisAlignment.center : MainAxisAlignment.start,
-        children: [
-          logo == ''
-              ? Container()
-              : Container(
-                  padding: EdgeInsets.only(left: 40.w, right: 30.w),
-                  child: Image.asset("assets/icons/$logo.png"),
-                ),
-          Container(
-            child: Text(
-              "Sign in with $loginType",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: AppColors.primaryText,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 14),
-            ),
-          )
-        ],
+    return GestureDetector(
+      child: Container(
+        width: 295.w,
+        height: 44.h,
+        padding: const EdgeInsets.all(10),
+        margin: EdgeInsets.only(bottom: 15.h),
+        decoration: BoxDecoration(
+            color: AppColors.primaryBackground,
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 2,
+                  offset: const Offset(0, 1))
+            ]),
+        child: Row(
+          mainAxisAlignment:
+              logo == '' ? MainAxisAlignment.center : MainAxisAlignment.start,
+          children: [
+            logo == ''
+                ? Container()
+                : Container(
+                    padding: EdgeInsets.only(left: 40.w, right: 30.w),
+                    child: Image.asset("assets/icons/$logo.png"),
+                  ),
+            Container(
+              child: Text(
+                "Sign in with $loginType",
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: AppColors.primaryText,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14),
+              ),
+            )
+          ],
+        ),
       ),
+      onTap: () {
+        print("third party $loginType");
+      },
     );
   }
 
@@ -88,6 +93,34 @@ class SignInPage extends GetView<WelcomeController> {
     );
   }
 
+  Widget _buildSignUpMethod() {
+    return GestureDetector(
+      child: Column(children: [
+        Text(
+          "Don't have an account?",
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              color: AppColors.primaryText,
+              fontWeight: FontWeight.normal,
+              fontSize: 12),
+        ),
+        GestureDetector(
+          child: Text(
+            "Sign up here",
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: AppColors.primaryElement,
+                fontWeight: FontWeight.normal,
+                fontSize: 12),
+          ),
+        )
+      ]),
+      onTap: () {
+        print("Sign up here");
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,28 +135,9 @@ class SignInPage extends GetView<WelcomeController> {
             _buildOrWidget(),
             _buildThirdPartyLogin("phone number", ""),
             SizedBox(
-              height: 40.h,
+              height: 35.h,
             ),
-            Column(
-              children: [
-                Text(
-                  "Don't have an account?",
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      color: AppColors.primaryText,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 12),
-                ),
-                Text(
-                  "Sign up here",
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      color: AppColors.primaryElement,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 12),
-                )
-              ],
-            )
+            _buildSignUpMethod()
           ],
         ),
       ),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "514220075958",
+    "project_id": "lvl-stream",
+    "storage_bucket": "lvl-stream.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514220075958:android:3a3ad6b79ab99f48fe2f17",
+        "android_client_info": {
+          "package_name": "com.example.streamer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514220075958-v4pognqrfd0elchn7j7l78rkn39o2cuu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxReweoRbv7pNhi6j0RXPJqZ63fNiSKkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514220075958-v4pognqrfd0elchn7j7l78rkn39o2cuu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
