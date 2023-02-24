@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:streamer/common/values/colors.dart';
 import 'package:streamer/pages/frame/welcome/controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:streamer/pages/frame/sign_in/controller.dart';
 
-class SignInPage extends GetView<WelcomeController> {
+class SignInPage extends GetView<SignInController> {
   const SignInPage({Key? key}) : super(key: key);
 
   Widget _buildLogo() {
@@ -63,7 +64,8 @@ class SignInPage extends GetView<WelcomeController> {
         ),
       ),
       onTap: () {
-        print("third party $loginType");
+        //print("third party $loginType");
+        controller.handleSignIn("google");
       },
     );
   }
