@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:streamer/common/middlewares/middlewares.dart';
 import 'package:streamer/pages/frame/welcome/index.dart';
+import 'package:streamer/pages/frame/sign_in/index.dart';
 import 'package:get/get.dart';
 import 'package:streamer/pages/message/index.dart';
 
@@ -18,12 +19,14 @@ class AppPages {
       page: () => WelcomePage(),
       binding: WelcomeBinding(),
     ),
-    /*
+    
     GetPage(
       name: AppRoutes.SIGN_IN,
-      page: () => SignInPage(),
+      page: () => const SignInPage(),
       binding: SignInBinding(),
     ),
+
+    /*
 
     // 需要登录
     // GetPage(
@@ -47,7 +50,7 @@ class AppPages {
     */ //Messages page
     GetPage(
       name: AppRoutes.Message,
-      page: () => MessagePage(),
+      page: () => const MessagePage(),
       binding: MessageBinding(),
       middlewares: [
         RouteAuthMiddleware(priority: 1),
