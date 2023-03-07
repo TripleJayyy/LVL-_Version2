@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:streamer/common/routes/pages.dart';
 import 'package:streamer/common/store/store.dart';
 import 'global.dart';
+import 'common/style/theme.dart';
 
 Future<void> main() async {
   await Global.init();
@@ -21,9 +22,7 @@ class MyApp extends StatelessWidget {
     builder: (context, child) => GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.light,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       )
