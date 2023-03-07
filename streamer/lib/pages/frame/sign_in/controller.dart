@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:streamer/common/entities/entities.dart';
+import 'package:streamer/common/routes/routes.dart';
 import 'package:streamer/pages/frame/sign_in/state.dart';
 
 class  SignInController extends GetxController{
@@ -34,6 +35,7 @@ class  SignInController extends GetxController{
             loginPanelListRequestEntity.email = email;
             loginPanelListRequestEntity.open_id = id;
             loginPanelListRequestEntity.type = 2;
+            asyncPostAllData();
           }
         }else{
           if(kDebugMode){
@@ -45,5 +47,11 @@ class  SignInController extends GetxController{
       print('error with login');
       }
     }
+  }
+
+  asyncPostAllData(){
+    print("... message pageg");
+
+    Get.offAllNamed(AppRoutes.Message);
   }
 }
