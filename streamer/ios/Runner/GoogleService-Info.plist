@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.streamer</string>
+	<string>com.streamer.lvl</string>
 	<key>PROJECT_ID</key>
 	<string>lvl-stream</string>
 	<key>STORAGE_BUCKET</key>

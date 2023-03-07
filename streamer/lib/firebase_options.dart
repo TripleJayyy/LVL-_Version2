@@ -45,17 +45,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyANzhuGIyX3pBJpAbNCFcoipBDiJD6i4LA',
-    appId: '1:514220075958:web:15d10e76d82c4150fe2f17',
+    appId: '1:514220075958:web:b3ccc15faea98ad3fe2f17',
     messagingSenderId: '514220075958',
     projectId: 'lvl-stream',
     authDomain: 'lvl-stream.firebaseapp.com',
     storageBucket: 'lvl-stream.appspot.com',
-    measurementId: 'G-GCQND9K3TW',
+    measurementId: 'G-080MXP60Y1',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBxReweoRbv7pNhi6j0RXPJqZ63fNiSKkA',
-    appId: '1:514220075958:android:3a3ad6b79ab99f48fe2f17',
+    appId: '1:514220075958:android:73143a60f577b144fe2f17',
     messagingSenderId: '514220075958',
     projectId: 'lvl-stream',
     storageBucket: 'lvl-stream.appspot.com',
@@ -63,21 +63,23 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBFlheVcRbCPhH7BQN-KzGS_Jla5KfXOPo',
-    appId: '1:514220075958:ios:851573511780d899fe2f17',
+    appId: '1:514220075958:ios:a4406f8fe74599e3fe2f17',
     messagingSenderId: '514220075958',
     projectId: 'lvl-stream',
     storageBucket: 'lvl-stream.appspot.com',
-    iosClientId: '514220075958-f64ag8715d1kb7rbt46aa7ufh2gkf9qq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.streamer',
+    androidClientId: '514220075958-jbv1b5kaac1p8nmgqo0hdi5mq8he7ono.apps.googleusercontent.com',
+    iosClientId: '514220075958-9kjfpk2st4gnbennfv659e1k297bacvd.apps.googleusercontent.com',
+    iosBundleId: 'com.streamer.lvl',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBFlheVcRbCPhH7BQN-KzGS_Jla5KfXOPo',
-    appId: '1:514220075958:ios:851573511780d899fe2f17',
+    appId: '1:514220075958:ios:a4406f8fe74599e3fe2f17',
     messagingSenderId: '514220075958',
     projectId: 'lvl-stream',
     storageBucket: 'lvl-stream.appspot.com',
-    iosClientId: '514220075958-f64ag8715d1kb7rbt46aa7ufh2gkf9qq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.streamer',
+    androidClientId: '514220075958-jbv1b5kaac1p8nmgqo0hdi5mq8he7ono.apps.googleusercontent.com',
+    iosClientId: '514220075958-9kjfpk2st4gnbennfv659e1k297bacvd.apps.googleusercontent.com',
+    iosBundleId: 'com.streamer.lvl',
   );
 }

@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:514220075958:android:3a3ad6b79ab99f48fe2f17",
+        "mobilesdk_app_id": "1:514220075958:android:73143a60f577b144fe2f17",
         "android_client_info": {
-          "package_name": "com.example.streamer"
+          "package_name": "com.streamer.lvl"
         }
       },
       "oauth_client": [
         {
-          "client_id": "514220075958-v4pognqrfd0elchn7j7l78rkn39o2cuu.apps.googleusercontent.com",
+          "client_id": "514220075958-3v2ri7d5pl48gaeismv2377hke31p9ef.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +27,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "514220075958-v4pognqrfd0elchn7j7l78rkn39o2cuu.apps.googleusercontent.com",
+              "client_id": "514220075958-3v2ri7d5pl48gaeismv2377hke31p9ef.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "514220075958-4bc495bbd32f61i4ri4kps5kv07o81mc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.exmaple.streamer.lvl"
+              }
             }
           ]
         }
