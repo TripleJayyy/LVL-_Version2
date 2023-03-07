@@ -5,7 +5,9 @@ import 'package:streamer/pages/frame/sign_in/index.dart';
 import 'package:get/get.dart';
 import 'package:streamer/pages/message/index.dart';
 
+import '../../pages/profile/bindings.dart';
 import 'routes.dart';
+import 'package:streamer/pages/profile/index.dart';
 
 class AppPages {
   static const INITIAL = AppRoutes.INITIAL;
@@ -16,7 +18,7 @@ class AppPages {
     // app boot
     GetPage(
       name: AppRoutes.INITIAL,
-      page: () => WelcomePage(),
+      page: () => const WelcomePage(),
       binding: WelcomeBinding(),
     ),
     
@@ -56,9 +58,12 @@ class AppPages {
         RouteAuthMiddleware(priority: 1),
       ],
     ),
+    
+    // Profiles page
+    GetPage(name: AppRoutes.Profile, 
+    page: () => const ProfilePage(), 
+    binding: ProfileBinding()),
     /*
-    //我的
-    GetPage(name: AppRoutes.Profile, page: () => ProfilePage(), binding: ProfileBinding()),
     //聊天详情
     GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
 
