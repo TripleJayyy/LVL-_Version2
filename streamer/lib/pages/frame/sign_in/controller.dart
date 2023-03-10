@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:streamer/common/entities/entities.dart';
 import 'package:streamer/common/routes/routes.dart';
+import 'package:streamer/common/store/user.dart';
 import 'package:streamer/pages/frame/sign_in/state.dart';
 
 class  SignInController extends GetxController{
@@ -49,9 +50,9 @@ class  SignInController extends GetxController{
     }
   }
 
-  asyncPostAllData(){
+  asyncPostAllData() async {
     print("... message pageg");
-
+    UserStore.to.setIsLogin=true;
     Get.offAllNamed(AppRoutes.Message);
   }
 }
