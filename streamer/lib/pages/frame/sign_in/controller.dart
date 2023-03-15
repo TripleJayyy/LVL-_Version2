@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:streamer/common/entities/entities.dart';
 import 'package:streamer/common/routes/routes.dart';
 import 'package:streamer/common/store/user.dart';
+import 'package:streamer/common/utils/http.dart';
 import 'package:streamer/pages/frame/sign_in/state.dart';
 
 class SignInController extends GetxController {
@@ -48,6 +49,10 @@ class SignInController extends GetxController {
 
   asyncPostAllData() async {
     print("... message page");
+    var response = await HttpUtil().get('/api/index');
+
+    print(response);
+    
     UserStore.to.setIsLogin = true;
     Get.offAllNamed(AppRoutes.Message);
   }
