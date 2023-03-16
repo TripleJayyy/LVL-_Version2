@@ -1,11 +1,19 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:streamer/common/entities/entities.dart';
 import 'package:streamer/common/routes/routes.dart';
-import 'package:streamer/common/store/user.dart';
+import 'package:streamer/common/apis/user.dart';
 import 'package:streamer/common/utils/http.dart';
+import 'package:streamer/common/widgets/toast.dart';
 import 'package:streamer/pages/frame/sign_in/state.dart';
+import 'package:streamer/common/store/user.dart';
+
+import '../../../common/apis/user.dart';
 
 class SignInController extends GetxController {
   SignInController();
@@ -33,7 +41,8 @@ class SignInController extends GetxController {
           loginPanelListRequestEntity.email = email;
           loginPanelListRequestEntity.open_id = id;
           loginPanelListRequestEntity.type = 2;
-          asyncPostAllData();
+          print(jsonEncode(loginPanelListRequestEntity));
+          asyncPostAllData(loginPanelListRequestEntity);
         }
       } else {
         if (kDebugMode) {
@@ -42,18 +51,30 @@ class SignInController extends GetxController {
       }
     } catch (e) {
       if (kDebugMode) {
-        print('error with login');
+        print('error with login $e');
       }
     }
   }
 
-  asyncPostAllData() async {
-    print("... message page");
-    var response = await HttpUtil().get('/api/index');
+  asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
+    EasyLoading.show(
+        indicator: const CircularProgressIndicator(),
+        maskType: EasyLoadingMaskType.clear,
+        dismissOnTap: true);
 
-    print(response);
-    
-    UserStore.to.setIsLogin = true;
+    var result = await UserAPI.Login(params: loginRequestEntity);
+    if (result.code == 0) {
+      await UserStore.to.saveProfile(result.data!);
+      EasyLoading.dismiss();
+    } else {
+      EasyLoading.dismiss();
+      toastInfo(msg: "Internet error");
+    }
+
+    //print("...let's go to msg page...");
+    //var response = await HttpUtil().get('/api/index');
+    //print(response);
+    //UserStore.to.setIsLogin = true;
     Get.offAllNamed(AppRoutes.Message);
   }
 }

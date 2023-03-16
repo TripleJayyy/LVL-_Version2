@@ -20,14 +20,14 @@ class LoginController extends Controller {
             'name'=>'required',
             'type'=>'required',
             'open_id'=>'required',
-            'email'=>'max=50',
-            'phone'=>'max=50',
+            'email'=>'max:50',
+            'phone'=>'max:30',
         ]);
 
         if($validator->fails()){
             return ['code'=>-1, "data"=>"no valid data", 'msg'=>$validator->errors()->first()];
         }
-
+        try{
         $validated = $validator->validated();
         $map = [];
         $map['type'] = $validated['type'];
@@ -36,7 +36,7 @@ class LoginController extends Controller {
             'avatar',
             'name',
             'description',
-            'type', 
+            'type',  
             'token', 
             'access_token',
             'online')
@@ -54,9 +54,10 @@ class LoginController extends Controller {
                 'type', 
                 'token', 
                 'access_token',
-                'online')->where('id', '=', $user_id)->first();
+                'online')
+                ->where('id', '=', $user_id)->first();
 
-            return ['code'=>0, 'data'=>$user_result, 'msg'=>'no user found'];
+            return ['code'=>0, 'data'=>$user_result, 'msg'=>'User has been created'];
         }else{
             $access_token= md5(uniqid().rand(1000000, 9999999));
             $expire_date = Carbon::now()->addDays(30);
@@ -67,7 +68,11 @@ class LoginController extends Controller {
                 ]
             );
             $result->access_token= $access_token;
-            return ['code'=>1, 'data'=>$result, 'msg'=>'User information updated'];
+            return ['code'=>0, 'data'=>$result, 'msg'=>'User information updated'];
         }
+        }catch(Exception $e){
+            return ['code'=> -1, "data"=>"no data present", 'msg'=>(string)$e];
+        }
+        
     }
 }
